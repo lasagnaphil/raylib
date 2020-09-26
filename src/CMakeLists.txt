@@ -176,7 +176,7 @@ if(STATIC)
   if (WITH_PIC)
     set_property(TARGET raylib_static PROPERTY POSITION_INDEPENDENT_CODE ON)
   endif()
-  set_target_properties(raylib_static PROPERTIES PUBLIC_HEADER "raylib.h")
+  set_target_properties(raylib_static PROPERTIES PUBLIC_HEADER "raylib.h;rlgl.h;physac.h;raymath.h;raudio.h")
   if(NOT MSVC) # Keep lib*.(a|dll) name, but avoid *.lib files overwriting each other on Windows
     set_target_properties(raylib_static PROPERTIES OUTPUT_NAME raylib)
   endif()
@@ -219,7 +219,7 @@ if(SHARED)
     target_link_libraries(raylib glfw)
   endif()
   set_target_properties(raylib PROPERTIES
-      PUBLIC_HEADER "raylib.h"
+      PUBLIC_HEADER "raylib.h;rlgl.h;physac.h;raymath.h;raudio.h"
       VERSION   ${PROJECT_VERSION}
       SOVERSION ${API_VERSION}
   )
